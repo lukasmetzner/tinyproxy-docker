@@ -1,0 +1,9 @@
+services:
+  tinyproxy:
+    build: .
+    restart: unless-stopped
+    image: tinyproxy:latest
+    volumes:
+    - ./tinyproxy.conf:/tinyproxy.conf
+    ports:
+    - 8888:8888
