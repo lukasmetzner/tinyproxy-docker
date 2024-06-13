@@ -4,11 +4,9 @@ WORKDIR /root/
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt update && apt upgrade -y
+RUN apt update && apt install -y --no-install-recommends build-essential git autotools-dev automake && apt-get clean all
 
-RUN apt install -y build-essential git autotools-dev automake
-
-RUN git clone https://github.com/tinyproxy/tinyproxy
+COPY tinyproxy/ tinyproxy/
 
 WORKDIR /root/tinyproxy
 
